@@ -42,8 +42,6 @@ if($_POST['action']!="delete") {
 }
 # ad - check secret length
 if($_POST['action']=="add") {
-	if(strlen($_POST['secret'])<8)									{ $Result->show("danger", _("Secret must be at least 8 characters long!"), true); }
-
 	//enforce password policy
 	$policy = (json_decode($User->settings->passwordPolicy, true));
 	$Password_check->set_requirements  ($policy, explode(",",$policy['allowedSymbols']));
